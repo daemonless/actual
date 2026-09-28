@@ -1,0 +1,10 @@
+{
+  "name": "@typescript/native-preview",
+  "version": "7.0.0-freebsd-shim",
+  "description": "No-op stand-in for tsgo (typescript-go) on FreeBSD, which has no published native binary for this platform (win32/darwin/linux optionalDependencies only). See ../../.porting/cookbook.md.",
+  "type": "module",
+  "bin": {
+    "tsgo": "./bin/tsgo.js"
+  },
+  "license": "Apache-2.0"
+}

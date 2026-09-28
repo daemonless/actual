@@ -1,0 +1,22 @@
+JOURNAL.log
+build.log
+cit-output.log
+.cit-passed
+
+# --- porting-toolkit artifacts (not part of the image) ---
+# See .porting/shipped-files.md. Remove a line only if you mean to ship it.
+/scripts/
+/.porting/
+/.claude/
+/CLAUDE.md
+/AGENTS.md
+/PORT-BRIEF.md
+/PROCESS-LOG.md
+/RUN-RECORD.md
+/BUILD-NOTES.md
+/WIP.md
+/sbom-results/
+JOURNAL.log
+build.log
+cit-output.log
+.cit-passed

@@ -1,0 +1,20 @@
+# dbuild configuration file
+# Full reference: https://github.com/daemonless/dbuild
+
+build:
+  variants:
+    - tag: latest
+      containerfile: Containerfile
+      default: true
+
+cit:
+  # Real health check, not boot-only: /health touches nothing but proves the
+  # process is listening (see PORT-BRIEF — the smoke test is what actually
+  # proves the SQLite/better-sqlite3 path works).
+  mode: health
+  port: 5006
+  health: /health
+  # The app logs "Listening on <host>:<port>..." (capital L). dbuild's default
+  # ready patterns don't match it, which would otherwise burn the full 120s
+  # wait before the first health probe.
+  ready: "Listening on"
