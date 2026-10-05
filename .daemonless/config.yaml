@@ -8,9 +8,33 @@ build:
       default: true
 
 cit:
-  # Real health check, not boot-only: /health touches nothing but proves the
-  # process is listening (see PORT-BRIEF — the smoke test is what actually
-  # proves the SQLite/better-sqlite3 path works).
+  # SCREENSHOT MODE DOES NOT WORK FOR THIS IMAGE YET, and the reason is in the
+  # browser rather than in the image or the app.
+  #
+  # Actual runs SQLite in the browser and needs SharedArrayBuffer, which a
+  # browser only grants to a cross-origin-isolated page in a SECURE CONTEXT.
+  # This image sends the headers isolation requires — verified against the
+  # running container:
+  #     Cross-Origin-Opener-Policy: same-origin
+  #     Cross-Origin-Embedder-Policy: require-corp
+  # but CIT browses to http://<container-ip>:5006, which is neither HTTPS nor
+  # localhost, so the API is withheld and the client renders its "Fatal Error
+  # — Actual requires access to SharedArrayBuffer" screen. Measured on one
+  # image and one browser with only the secure context varying:
+  #     as CIT does it      crossOriginIsolated=False  SharedArrayBuffer=False
+  #     origin trusted      crossOriginIsolated=True   SharedArrayBuffer=True
+  #
+  # So a baseline captured here would be a picture of an error dialog recorded
+  # as the expected appearance — after which a genuinely broken build still
+  # matches it and the check passes forever. That is worse than no screenshot,
+  # which is why this stays on `health` until CIT can reach the container over
+  # a trustworthy origin. Raised upstream; do not flip this to `screenshot`
+  # without re-checking what the capture actually contains.
+  #
+  # /health is a static handler, so it proves only that the process listens.
+  # scripts/smoke-test.sh is what exercises the real risk of this port: the
+  # account DB opens (better-sqlite3), the client index is served, and
+  # bootstrap + login round-trip (argon2/bcrypt).
   mode: health
   port: 5006
   health: /health

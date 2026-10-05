@@ -7,6 +7,7 @@ Source: dbuild templates
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/actual/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/actual/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/daemonless/actual?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/actual/commits)
+[![OCI Pulls](https://img.shields.io/docker/pulls/daemonless/actual?style=flat-square&label=OCI+Pulls&color=blue)](https://hub.docker.com/r/daemonless/actual)
 
 Self-hosted personal finance sync server (Actual Budget) on FreeBSD.
 
@@ -19,7 +20,7 @@ Self-hosted personal finance sync server (Actual Budget) on FreeBSD.
 ## Version Tags
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
-| `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
+| `latest` | **Upstream Binary**. Built from official release. | Most users — recommended. |
 
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
@@ -42,9 +43,12 @@ services:
       - ACTUAL_HOSTNAME=0.0.0.0  # Bind address for the sync server; leave as 0.0.0.0 (the app's own default, '::', is IPv6-any and breaks single-stack containers)
       - ACTUAL_DATA_DIR=/data  # Directory where Actual stores its account database, budget files and server config (under the /data volume)
     volumes:
-      - "/path/to/containers/actual/data:/data"
-    restart: unless-stopped
+      - "/containers/actual/data:/data"
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
+    restart: always
 ```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
 
 ### AppJail Director
 **.env**:
@@ -74,7 +78,7 @@ services:
   actual:
     name: actual
     options:
-      - container: 'boot args:--pull'
+      - container: 'args:--pull'
     oci:
       user: root
       environment:
@@ -89,7 +93,7 @@ services:
       - actual_data: /data
 volumes:
   actual_data:
-    device: '/path/to/containers/actual/data'
+    device: '/containers/actual/data'
 ```
 
 **Makejail**:
@@ -99,64 +103,40 @@ volumes:
 
 ARG tag=latest
 
+OPTION container=boot
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/actual:${tag}
 ```
 
-### Podman CLI
+Save the files above, then run `appjail-director up`.
 
-```bash
-podman run -d --name actual \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -e NODE_ENV=production \
-  -e ACTUAL_PORT=5006 \
-  -e ACTUAL_HOSTNAME=0.0.0.0 \
-  -e ACTUAL_DATA_DIR=/data \
-  -v /path/to/containers/actual/data:/data \
-  ghcr.io/daemonless/actual:latest
-```
 
-### AppJail
 
-```bash
-appjail oci run -Pd \
-  -o overwrite=force \
-  -o container="args:--pull" \
-  -o virtualnet=":<random> default" \
-  -o nat \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -e NODE_ENV=production \
-  -e ACTUAL_PORT=5006 \
-  -e ACTUAL_HOSTNAME=0.0.0.0 \
-  -e ACTUAL_DATA_DIR=/data \
-  -o fstab="/path/to/containers/actual/data /data <pseudofs>" \
-  ghcr.io/daemonless/actual:latest actual
-```
+### Bastille
 
-### Ansible
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah` and shares the host network stack (`inherit`). Mount volumes with `--volume HOST JAIL`; without it, image-declared volumes are stored under `${bastille_volumesdir}/${jail}`.
 
 ```yaml
-- name: Deploy actual
-  containers.podman.podman_container:
+services:
+  actual:
     name: actual
     image: "ghcr.io/daemonless/actual:latest"
-    state: started
-    restart_policy: always
-    env:
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "Etc/UTC"
-      NODE_ENV: "production"
-      ACTUAL_PORT: "5006"
-      ACTUAL_HOSTNAME: "0.0.0.0"
-      ACTUAL_DATA_DIR: "/data"
+    network:
+      - mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - NODE_ENV=production
+      - ACTUAL_PORT=5006
+      - ACTUAL_HOSTNAME=0.0.0.0
+      - ACTUAL_DATA_DIR=/data
     volumes:
-      - "/path/to/containers/actual/data:/data"
+      - "/containers/actual/data:/data"
 ```
+
+Save as `bastille-compose.yml`, then run `bastille up`.
 
 ## Parameters
 

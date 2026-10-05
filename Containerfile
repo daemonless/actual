@@ -12,7 +12,15 @@
 # --------------------------------------------------------------------------
 
 ARG BASE_VERSION=15
-ARG ACTUAL_VERSION=v26.9.0
+
+# Upstream version tracking. Left empty, the build resolves the newest release
+# tag from UPSTREAM_URL/UPSTREAM_JQ (the same pair published as
+# io.daemonless.upstream-url/-jq labels on the runtime stage, so the version
+# pipeline reads one source of truth). Pass --build-arg ACTUAL_VERSION=vX.Y.Z
+# to pin a build to a specific tag.
+ARG ACTUAL_VERSION=""
+ARG UPSTREAM_URL="https://api.github.com/repos/actualbudget/actual/releases/latest"
+ARG UPSTREAM_JQ=".tag_name"
 
 # ==========================================================================
 # Stage 1: Builder
@@ -20,6 +28,8 @@ ARG ACTUAL_VERSION=v26.9.0
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
 
 ARG ACTUAL_VERSION
+ARG UPSTREAM_URL
+ARG UPSTREAM_JQ
 
 # Build dependencies.
 #  - node24: engines.node requires >=22.18.0; upstream itself builds on
@@ -27,17 +37,18 @@ ARG ACTUAL_VERSION
 #    against the live packagesite), so no /quarterly -> /latest switch is
 #    needed here. Yarn is invoked from the vendored release below, not via
 #    npm/corepack, so neither package is installed.
-#  - git-lite: clones the pinned tag; bin/package-browser (below) also shells
-#    out to git to pull translations.
+#  - git-lite: clones the resolved release tag; bin/package-browser (below)
+#    also shells out to git to pull translations.
 #  - bash: bin/package-browser has a `#!/bin/bash` shebang; FreeBSD ships no
 #    /bin/bash by default.
 #  - FreeBSD-clang/-lld/-toolchain/-clibs-dev, pkgconf, python3, gmake:
 #    node-gyp toolchain. argon2, bcrypt and better-sqlite3 all compile from
 #    source on FreeBSD — none has a prebuilt. node-gyp itself comes in via
 #    yarn's own dependency tree (yarn.lock: node-gyp@npm:^11.2.0), not npm.
+#  - jq: applies UPSTREAM_JQ to the UPSTREAM_URL response below.
 RUN pkg install -y \
       node24 \
-      git-lite bash \
+      git-lite bash jq \
       FreeBSD-clang FreeBSD-lld FreeBSD-toolchain FreeBSD-clibs-dev \
       pkgconf python3 gmake \
     && pkg clean -ay
@@ -46,7 +57,30 @@ RUN pkg install -y \
 RUN ln -s /usr/local/bin/bash /bin/bash
 
 WORKDIR /app
-RUN git clone --depth 1 --branch ${ACTUAL_VERSION} \
+
+# Resolve the release tag and clone it in one layer — a version resolved inside
+# a RUN is not visible to later ones, so it is recorded in /tmp/app_version
+# here and copied into the runtime image as /app/version.
+#
+# If a token is mounted (CI), pass it via fetch's HTTP_AUTH so the API call gets
+# the authenticated rate limit on shared runner IPs; the git clone itself stays
+# unauthenticated (both repos are public). The `v[0-9]*` check turns a changed
+# release-naming scheme, a rate-limit JSON body or an empty token-mangled
+# response into a loud build failure instead of `git clone --branch ""`.
+RUN --mount=type=secret,id=github_token \
+    set -eu; \
+    GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || echo ""); \
+    if [ -n "${GITHUB_TOKEN}" ]; then \
+      export HTTP_AUTH="basic:*:x-access-token:${GITHUB_TOKEN}"; \
+    fi; \
+    version="${ACTUAL_VERSION:-$(fetch -qo - "${UPSTREAM_URL}" | jq -r "${UPSTREAM_JQ}")}"; \
+    case "${version}" in \
+      v[0-9]*) ;; \
+      *) echo "Unexpected upstream version '${version}' from ${UPSTREAM_URL} (${UPSTREAM_JQ}); expected a vX.Y.Z tag" >&2; exit 1 ;; \
+    esac; \
+    echo "Resolved VERSION=${version}"; \
+    echo "${version}" > /tmp/app_version; \
+    git clone --depth 1 --branch "${version}" \
       https://github.com/actualbudget/actual.git .
 
 # Yarn 4 (berry) is vendored in the repo at .yarn/releases — FreeBSD's `yarn`
@@ -60,8 +94,10 @@ RUN ln -s "$(pwd)/$(ls .yarn/releases/yarn-*.cjs)" /usr/local/bin/yarn-vendored.
 ENV YARN="node /usr/local/bin/yarn-vendored.cjs"
 
 # dependenciesMeta re-enables build/postinstall scripts (enableScripts:false
-# is the repo-wide default) for exactly six packages. Two of them are not
-# reachable from the workspaces this port ships and have no FreeBSD path:
+# is the repo-wide default) for exactly six packages. This port changes three
+# of those entries.
+#
+# Removed — not reachable from the workspaces this port ships, no FreeBSD path:
 #  - electron (desktop-electron only): its install.js unconditionally
 #    downloads a platform artifact with no FreeBSD build ever published — a
 #    hard failure, not a fallback.
@@ -70,18 +106,37 @@ ENV YARN="node /usr/local/bin/yarn-vendored.cjs"
 # Both are out of scope per PORT-BRIEF anyway (desktop app / docs site). A
 # whole-monorepo `yarn install` (matching upstream, needed so root-only
 # devDependencies like `lage` are present) would otherwise try to run both.
+#
+# Forced to built:true — better-sqlite3. Upstream set it to `false` in v26.10.0
+# when it moved to better-sqlite3 13.x, which ships prebuilt bindings in the
+# npm tarball; its lib/binding.js only looks for `prebuilds/<platform>-<arch>`
+# on linux/darwin/win32, so on FreeBSD the prebuild lookup returns null and the
+# require falls through to build/Release/better_sqlite3.node — a file that only
+# exists if node-gyp ran. With `built:false` the install silently produces an
+# image whose first database open throws. Flipping it back is what keeps the
+# node-gyp toolchain above load-bearing. (v26.9.0 had built:true, so this is a
+# regression introduced by the upstream bump, not a long-standing gap.)
 RUN node -e " \
     const fs = require('fs'); \
     const p = JSON.parse(fs.readFileSync('package.json', 'utf8')); \
+    const meta = p.dependenciesMeta || {}; \
     for (const dep of ['electron', 'sharp']) { \
-      if (!(dep in (p.dependenciesMeta || {}))) { \
+      if (!(dep in meta)) { \
         console.error('PATCH DRIFT: dependenciesMeta.' + dep + ' missing — review the electron/sharp skip patch'); \
         process.exit(1); \
       } \
-      delete p.dependenciesMeta[dep]; \
+      delete meta[dep]; \
     } \
+    if (!('better-sqlite3' in meta)) { \
+      console.error('PATCH DRIFT: dependenciesMeta[\"better-sqlite3\"] is gone — with enableScripts:false its native binding will not be compiled at all; review this patch'); \
+      process.exit(1); \
+    } \
+    const was = meta['better-sqlite3'].built; \
+    meta['better-sqlite3'].built = true; \
+    p.dependenciesMeta = meta; \
     fs.writeFileSync('package.json', JSON.stringify(p, null, 2) + '\n'); \
     console.log('Disabled electron + sharp postinstall (no FreeBSD path, out of scope per PORT-BRIEF).'); \
+    console.log('better-sqlite3 built: ' + was + ' -> true (no FreeBSD prebuild ships in the tarball).'); \
     "
 
 # lage (the monorepo build orchestrator `yarn build:server` depends on)
@@ -164,6 +219,24 @@ RUN node -e " \
 
 RUN $YARN install
 
+# Prove the database layer before spending ~20 minutes on build:server. This
+# loads better-sqlite3 exactly as the sync server does (resolved from the
+# sync-server workspace, so hoisting changes can't fool it) and opens a real
+# database. It is the one failure mode that a passing install, a passing build
+# and even a /health probe all miss — see the dependenciesMeta note above.
+RUN node -e " \
+    const Database = require(require.resolve('better-sqlite3', { paths: ['packages/sync-server'] })); \
+    const db = new Database(':memory:'); \
+    db.exec('create table probe (x integer)'); \
+    db.prepare('insert into probe values (?)').run(1); \
+    if (db.prepare('select count(*) as n from probe').get().n !== 1) { \
+      console.error('better-sqlite3 loaded but did not round-trip a row'); \
+      process.exit(1); \
+    } \
+    db.close(); \
+    console.log('better-sqlite3 native binding loaded and round-tripped a row.'); \
+    "
+
 # Upstream caps the build heap at 8 GB via NODE_OPTIONS; this build host has
 # ~9 GB usable and runs other services, so start conservative (per
 # PORT-BRIEF) and only raise this if a build OOMs.
@@ -190,25 +263,30 @@ RUN rm -rf ./node_modules/@actual-app/web ./node_modules/@actual-app/sync-server
     cp packages/desktop-client/package.json ./node_modules/@actual-app/web/package.json && \
     cp -r packages/desktop-client/build ./node_modules/@actual-app/web/build
 
-RUN echo "${ACTUAL_VERSION}" > /tmp/app_version
-
 # ==========================================================================
 # Stage 2: Runtime
 # ==========================================================================
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG ACTUAL_VERSION
 ARG PACKAGES="node24 ca_root_nss"
+# Bare re-declarations: these inherit the pre-FROM globals above, so the URL and
+# filter have one definition rather than one per stage (verified on the built
+# image's labels, not assumed).
+ARG UPSTREAM_URL
+ARG UPSTREAM_JQ
 ARG HEALTHCHECK_ENDPOINT="http://localhost:5006/health"
 
 ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
+# The version pipeline reads io.daemonless.upstream-url/-jq to find the newest
+# upstream release and compares it with /app/version (written by the builder
+# stage), so image.version is the moving tag, not a hardcoded release.
 LABEL org.opencontainers.image.title="Actual Budget" \
       org.opencontainers.image.description="Self-hosted personal finance sync server (Actual Budget) on FreeBSD" \
       org.opencontainers.image.source="https://github.com/daemonless/actual" \
       org.opencontainers.image.url="https://actualbudget.org/" \
-      org.opencontainers.image.version="${ACTUAL_VERSION}" \
+      org.opencontainers.image.version="latest" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.vendor="daemonless" \
       org.opencontainers.image.authors="daemonless" \
@@ -217,6 +295,8 @@ LABEL org.opencontainers.image.title="Actual Budget" \
       io.daemonless.volumes="/data" \
       io.daemonless.healthcheck-url="${HEALTHCHECK_ENDPOINT}" \
       io.daemonless.arch="${FREEBSD_ARCH}" \
+      io.daemonless.upstream-url="${UPSTREAM_URL}" \
+      io.daemonless.upstream-jq="${UPSTREAM_JQ}" \
       io.daemonless.packages="${PACKAGES}"
 
 # ca_root_nss: bank-sync providers (GoCardless/SimpleFIN/Pluggy/Akahu/
