@@ -1,0 +1,1755 @@
+{
+  "generated": "2026-10-05T11:01:56Z",
+  "image": "actual",
+  "tags": {
+    "latest": {
+      "app_version": "v26.10.0",
+      "arch": "amd64",
+      "generated": "2026-10-05T11:01:16Z",
+      "packages": {
+        "dotnet": [],
+        "freebsd": [
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-audit-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-blocklist",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-bzip2-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-certctl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-clibs",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "CDDL-1.0"
+            ],
+            "name": "FreeBSD-ctf-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD-3-Clause"
+            ],
+            "name": "FreeBSD-dhclient",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-fetch",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-kerberos-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libarchive",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libbsdstat",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libcasper",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libexecinfo",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libldns",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libmagic",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libucl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-locales",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-mtree",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-ncurses-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-openssl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-openssl-lib",
+            "version": "15.1p3"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-pam-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-pkg-bootstrap",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-rc",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-resolvconf",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-runtime",
+            "version": "15.1p3"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-tcpd",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-ufs-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-utilities",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-xz-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "CDDL-1.0"
+            ],
+            "name": "FreeBSD-zfs-lib",
+            "version": "15.1p1"
+          },
+          {
+            "licenses": [
+              "Zlib"
+            ],
+            "name": "FreeBSD-zlib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "PD"
+            ],
+            "name": "FreeBSD-zoneinfo",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-zstd-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "brotli",
+            "version": "1.2.0,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "c-ares",
+            "version": "1.34.6"
+          },
+          {
+            "licenses": [
+              "MPL20"
+            ],
+            "name": "ca_root_nss",
+            "version": "3.130"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "corepack",
+            "version": "0.35.0"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "execline",
+            "version": "2.9.8.1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "googletest",
+            "version": "1.16.0"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE",
+              "CC0-1.0"
+            ],
+            "name": "hdr_histogram",
+            "version": "0.11.10"
+          },
+          {
+            "licenses": [
+              "ICU"
+            ],
+            "name": "icu",
+            "version": "76.1,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "jq",
+            "version": "1.8.2"
+          },
+          {
+            "licenses": [
+              "MIT",
+              "APACHE20"
+            ],
+            "name": "libada",
+            "version": "3.4.4"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "libedit",
+            "version": "3.1.20260512,1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE",
+              "GPLv2"
+            ],
+            "name": "liblz4",
+            "version": "1.10.0_2,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libnghttp2",
+            "version": "1.69.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libnghttp3",
+            "version": "1.17.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libngtcp2",
+            "version": "1.24.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libuv",
+            "version": "1.52.1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "llhttp",
+            "version": "9.4.2"
+          },
+          {
+            "licenses": [
+              "MIT",
+              "APACHE20"
+            ],
+            "name": "merve",
+            "version": "1.2.2_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "nbytes",
+            "version": "0.1.4"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "node24",
+            "version": "24.19.0"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "oniguruma",
+            "version": "6.9.10"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "pkg",
+            "version": "2.7.5"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "s6",
+            "version": "2.14.0.1"
+          },
+          {
+            "licenses": [
+              "MIT",
+              "APACHE20"
+            ],
+            "name": "simdjson",
+            "version": "4.6.11"
+          },
+          {
+            "licenses": [
+              "MIT",
+              "APACHE20"
+            ],
+            "name": "simdutf",
+            "version": "9.0.0"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "skalibs",
+            "version": "2.14.5.1"
+          },
+          {
+            "licenses": [
+              "PD"
+            ],
+            "name": "sqlite3",
+            "version": "3.53.3,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "uvwasi",
+            "version": "0.0.23"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE",
+              "GPLv2"
+            ],
+            "name": "zstd",
+            "version": "1.5.7_2"
+          }
+        ],
+        "go": [],
+        "java": [],
+        "node": [
+          {
+            "name": "@actual-app/core",
+            "purl": "",
+            "version": "26.10.0"
+          },
+          {
+            "name": "@actual-app/crdt",
+            "purl": "",
+            "version": "3.1.3"
+          },
+          {
+            "name": "@actual-app/sync-server",
+            "purl": "",
+            "version": "26.10.0"
+          },
+          {
+            "name": "@actual-app/web",
+            "purl": "",
+            "version": "26.10.0"
+          },
+          {
+            "name": "@bufbuild/protobuf",
+            "purl": "",
+            "version": "2.12.1"
+          },
+          {
+            "name": "@colors/colors",
+            "purl": "",
+            "version": "1.6.0"
+          },
+          {
+            "name": "@dabh/diagnostics",
+            "purl": "",
+            "version": "2.0.8"
+          },
+          {
+            "name": "@epic-web/invariant",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "@isaacs/cliui",
+            "purl": "",
+            "version": "8.0.2"
+          },
+          {
+            "name": "@isaacs/fs-minipass",
+            "purl": "",
+            "version": "4.0.1"
+          },
+          {
+            "name": "@npmcli/agent",
+            "purl": "",
+            "version": "3.0.0"
+          },
+          {
+            "name": "@npmcli/fs",
+            "purl": "",
+            "version": "4.0.0"
+          },
+          {
+            "name": "@phc/format",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "@pkgjs/parseargs",
+            "purl": "",
+            "version": "0.11.0"
+          },
+          {
+            "name": "@sindresorhus/is",
+            "purl": "",
+            "version": "4.6.0"
+          },
+          {
+            "name": "@so-ric/colorspace",
+            "purl": "",
+            "version": "1.1.6"
+          },
+          {
+            "name": "@szmarczak/http-timer",
+            "purl": "",
+            "version": "4.0.6"
+          },
+          {
+            "name": "@types/cacheable-request",
+            "purl": "",
+            "version": "6.0.3"
+          },
+          {
+            "name": "@types/http-cache-semantics",
+            "purl": "",
+            "version": "4.0.4"
+          },
+          {
+            "name": "@types/keyv",
+            "purl": "",
+            "version": "3.1.4"
+          },
+          {
+            "name": "@types/node",
+            "purl": "",
+            "version": "26.0.1"
+          },
+          {
+            "name": "@types/responselike",
+            "purl": "",
+            "version": "1.0.3"
+          },
+          {
+            "name": "@types/triple-beam",
+            "purl": "",
+            "version": "1.3.5"
+          },
+          {
+            "name": "abbrev",
+            "purl": "",
+            "version": "3.0.1"
+          },
+          {
+            "name": "accepts",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "agent-base",
+            "purl": "",
+            "version": "6.0.2"
+          },
+          {
+            "name": "akahu",
+            "purl": "",
+            "version": "2.5.1"
+          },
+          {
+            "name": "ansi-regex",
+            "purl": "",
+            "version": "5.0.1"
+          },
+          {
+            "name": "ansi-styles",
+            "purl": "",
+            "version": "3.2.1"
+          },
+          {
+            "name": "argon2",
+            "purl": "",
+            "version": "0.44.0"
+          },
+          {
+            "name": "async",
+            "purl": "",
+            "version": "3.2.6"
+          },
+          {
+            "name": "async-function",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "async-generator-function",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "asynckit",
+            "purl": "",
+            "version": "0.4.0"
+          },
+          {
+            "name": "axios",
+            "purl": "",
+            "version": "1.18.1"
+          },
+          {
+            "name": "balanced-match",
+            "purl": "",
+            "version": "1.0.2"
+          },
+          {
+            "name": "bcrypt",
+            "purl": "",
+            "version": "6.0.0"
+          },
+          {
+            "name": "better-sqlite3",
+            "purl": "",
+            "version": "13.0.3"
+          },
+          {
+            "name": "body-parser",
+            "purl": "",
+            "version": "2.2.1"
+          },
+          {
+            "name": "brace-expansion",
+            "purl": "",
+            "version": "2.0.3"
+          },
+          {
+            "name": "buffer-equal-constant-time",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "bytes",
+            "purl": "",
+            "version": "3.1.2"
+          },
+          {
+            "name": "cacache",
+            "purl": "",
+            "version": "19.0.1"
+          },
+          {
+            "name": "cacheable-lookup",
+            "purl": "",
+            "version": "5.0.4"
+          },
+          {
+            "name": "cacheable-request",
+            "purl": "",
+            "version": "7.0.4"
+          },
+          {
+            "name": "call-bind-apply-helpers",
+            "purl": "",
+            "version": "1.0.2"
+          },
+          {
+            "name": "call-bound",
+            "purl": "",
+            "version": "1.0.4"
+          },
+          {
+            "name": "chalk",
+            "purl": "",
+            "version": "2.4.2"
+          },
+          {
+            "name": "chownr",
+            "purl": "",
+            "version": "3.0.0"
+          },
+          {
+            "name": "clone-response",
+            "purl": "",
+            "version": "1.0.3"
+          },
+          {
+            "name": "color",
+            "purl": "",
+            "version": "5.0.2"
+          },
+          {
+            "name": "color-convert",
+            "purl": "",
+            "version": "1.9.3"
+          },
+          {
+            "name": "color-name",
+            "purl": "",
+            "version": "1.1.3"
+          },
+          {
+            "name": "color-string",
+            "purl": "",
+            "version": "2.1.2"
+          },
+          {
+            "name": "combined-stream",
+            "purl": "",
+            "version": "1.0.8"
+          },
+          {
+            "name": "commander",
+            "purl": "",
+            "version": "2.20.3"
+          },
+          {
+            "name": "content-disposition",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "content-type",
+            "purl": "",
+            "version": "1.0.5"
+          },
+          {
+            "name": "convict",
+            "purl": "",
+            "version": "6.2.5"
+          },
+          {
+            "name": "cookie",
+            "purl": "",
+            "version": "0.7.2"
+          },
+          {
+            "name": "cookie-signature",
+            "purl": "",
+            "version": "1.2.2"
+          },
+          {
+            "name": "corepack",
+            "purl": "",
+            "version": "0.35.0"
+          },
+          {
+            "name": "cors",
+            "purl": "",
+            "version": "2.8.6"
+          },
+          {
+            "name": "cross-env",
+            "purl": "",
+            "version": "10.1.0"
+          },
+          {
+            "name": "cross-spawn",
+            "purl": "",
+            "version": "7.0.6"
+          },
+          {
+            "name": "date-fns",
+            "purl": "",
+            "version": "4.4.0"
+          },
+          {
+            "name": "dateformat",
+            "purl": "",
+            "version": "4.6.3"
+          },
+          {
+            "name": "debug",
+            "purl": "",
+            "version": "4.4.3"
+          },
+          {
+            "name": "decompress-response",
+            "purl": "",
+            "version": "6.0.0"
+          },
+          {
+            "name": "defer-to-connect",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "delayed-stream",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "depd",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "dotenv",
+            "purl": "",
+            "version": "16.6.1"
+          },
+          {
+            "name": "dunder-proto",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "eastasianwidth",
+            "purl": "",
+            "version": "0.2.0"
+          },
+          {
+            "name": "ecdsa-sig-formatter",
+            "purl": "",
+            "version": "1.0.11"
+          },
+          {
+            "name": "ee-first",
+            "purl": "",
+            "version": "1.1.1"
+          },
+          {
+            "name": "emoji-regex",
+            "purl": "",
+            "version": "8.0.0"
+          },
+          {
+            "name": "enabled",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "encodeurl",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "encoding",
+            "purl": "",
+            "version": "0.1.13"
+          },
+          {
+            "name": "end-of-stream",
+            "purl": "",
+            "version": "1.4.5"
+          },
+          {
+            "name": "env-paths",
+            "purl": "",
+            "version": "2.2.1"
+          },
+          {
+            "name": "err-code",
+            "purl": "",
+            "version": "2.0.3"
+          },
+          {
+            "name": "es-define-property",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "es-errors",
+            "purl": "",
+            "version": "1.3.0"
+          },
+          {
+            "name": "es-object-atoms",
+            "purl": "",
+            "version": "1.1.1"
+          },
+          {
+            "name": "es-set-tostringtag",
+            "purl": "",
+            "version": "2.1.0"
+          },
+          {
+            "name": "escape-html",
+            "purl": "",
+            "version": "1.0.3"
+          },
+          {
+            "name": "escape-string-regexp",
+            "purl": "",
+            "version": "1.0.5"
+          },
+          {
+            "name": "etag",
+            "purl": "",
+            "version": "1.8.1"
+          },
+          {
+            "name": "exponential-backoff",
+            "purl": "",
+            "version": "3.1.2"
+          },
+          {
+            "name": "express",
+            "purl": "",
+            "version": "5.2.1"
+          },
+          {
+            "name": "express-rate-limit",
+            "purl": "",
+            "version": "8.6.0"
+          },
+          {
+            "name": "express-winston",
+            "purl": "",
+            "version": "4.2.0"
+          },
+          {
+            "name": "fdir",
+            "purl": "",
+            "version": "6.5.0"
+          },
+          {
+            "name": "fecha",
+            "purl": "",
+            "version": "4.2.3"
+          },
+          {
+            "name": "finalhandler",
+            "purl": "",
+            "version": "2.1.0"
+          },
+          {
+            "name": "fn.name",
+            "purl": "",
+            "version": "1.1.0"
+          },
+          {
+            "name": "follow-redirects",
+            "purl": "",
+            "version": "1.16.0"
+          },
+          {
+            "name": "foreground-child",
+            "purl": "",
+            "version": "3.3.1"
+          },
+          {
+            "name": "form-data",
+            "purl": "",
+            "version": "4.0.6"
+          },
+          {
+            "name": "forwarded",
+            "purl": "",
+            "version": "0.2.0"
+          },
+          {
+            "name": "fresh",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "fs-minipass",
+            "purl": "",
+            "version": "3.0.3"
+          },
+          {
+            "name": "function-bind",
+            "purl": "",
+            "version": "1.1.2"
+          },
+          {
+            "name": "generator-function",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "get-intrinsic",
+            "purl": "",
+            "version": "1.3.1"
+          },
+          {
+            "name": "get-proto",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "get-stream",
+            "purl": "",
+            "version": "5.2.0"
+          },
+          {
+            "name": "glob",
+            "purl": "",
+            "version": "10.5.0"
+          },
+          {
+            "name": "gopd",
+            "purl": "",
+            "version": "1.2.0"
+          },
+          {
+            "name": "got",
+            "purl": "",
+            "version": "11.8.6"
+          },
+          {
+            "name": "graceful-fs",
+            "purl": "",
+            "version": "4.2.11"
+          },
+          {
+            "name": "has-flag",
+            "purl": "",
+            "version": "3.0.0"
+          },
+          {
+            "name": "has-symbols",
+            "purl": "",
+            "version": "1.1.0"
+          },
+          {
+            "name": "has-tostringtag",
+            "purl": "",
+            "version": "1.0.2"
+          },
+          {
+            "name": "hasown",
+            "purl": "",
+            "version": "2.0.4"
+          },
+          {
+            "name": "http-cache-semantics",
+            "purl": "",
+            "version": "4.2.0"
+          },
+          {
+            "name": "http-errors",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "http-proxy-agent",
+            "purl": "",
+            "version": "7.0.2"
+          },
+          {
+            "name": "http2-wrapper",
+            "purl": "",
+            "version": "1.0.3"
+          },
+          {
+            "name": "https-proxy-agent",
+            "purl": "",
+            "version": "5.0.1"
+          },
+          {
+            "name": "iconv-lite",
+            "purl": "",
+            "version": "0.6.3"
+          },
+          {
+            "name": "imurmurhash",
+            "purl": "",
+            "version": "0.1.4"
+          },
+          {
+            "name": "inherits",
+            "purl": "",
+            "version": "2.0.4"
+          },
+          {
+            "name": "ip-address",
+            "purl": "",
+            "version": "10.4.0"
+          },
+          {
+            "name": "ipaddr.js",
+            "purl": "",
+            "version": "1.9.1"
+          },
+          {
+            "name": "is-fullwidth-code-point",
+            "purl": "",
+            "version": "3.0.0"
+          },
+          {
+            "name": "is-promise",
+            "purl": "",
+            "version": "4.0.0"
+          },
+          {
+            "name": "is-stream",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "isexe",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "jackspeak",
+            "purl": "",
+            "version": "3.4.3"
+          },
+          {
+            "name": "jose",
+            "purl": "",
+            "version": "4.15.9"
+          },
+          {
+            "name": "json-buffer",
+            "purl": "",
+            "version": "3.0.1"
+          },
+          {
+            "name": "jsonwebtoken",
+            "purl": "",
+            "version": "9.0.3"
+          },
+          {
+            "name": "jwa",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "jws",
+            "purl": "",
+            "version": "4.0.1"
+          },
+          {
+            "name": "keyv",
+            "purl": "",
+            "version": "4.5.4"
+          },
+          {
+            "name": "kuler",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "lodash",
+            "purl": "",
+            "version": "4.18.1"
+          },
+          {
+            "name": "lodash.clonedeep",
+            "purl": "",
+            "version": "4.5.0"
+          },
+          {
+            "name": "lodash.includes",
+            "purl": "",
+            "version": "4.3.0"
+          },
+          {
+            "name": "lodash.isboolean",
+            "purl": "",
+            "version": "3.0.3"
+          },
+          {
+            "name": "lodash.isinteger",
+            "purl": "",
+            "version": "4.0.4"
+          },
+          {
+            "name": "lodash.isnumber",
+            "purl": "",
+            "version": "3.0.3"
+          },
+          {
+            "name": "lodash.isplainobject",
+            "purl": "",
+            "version": "4.0.6"
+          },
+          {
+            "name": "lodash.isstring",
+            "purl": "",
+            "version": "4.0.1"
+          },
+          {
+            "name": "lodash.once",
+            "purl": "",
+            "version": "4.1.1"
+          },
+          {
+            "name": "logform",
+            "purl": "",
+            "version": "2.7.0"
+          },
+          {
+            "name": "lowercase-keys",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "lru-cache",
+            "purl": "",
+            "version": "10.4.3"
+          },
+          {
+            "name": "make-fetch-happen",
+            "purl": "",
+            "version": "14.0.3"
+          },
+          {
+            "name": "math-intrinsics",
+            "purl": "",
+            "version": "1.1.0"
+          },
+          {
+            "name": "media-typer",
+            "purl": "",
+            "version": "1.1.0"
+          },
+          {
+            "name": "merge-descriptors",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "migrate",
+            "purl": "",
+            "version": "2.1.0"
+          },
+          {
+            "name": "mime-db",
+            "purl": "",
+            "version": "1.52.0"
+          },
+          {
+            "name": "mime-types",
+            "purl": "",
+            "version": "2.1.35"
+          },
+          {
+            "name": "mimic-response",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "minimatch",
+            "purl": "",
+            "version": "9.0.9"
+          },
+          {
+            "name": "minipass",
+            "purl": "",
+            "version": "3.3.6"
+          },
+          {
+            "name": "minipass-collect",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "minipass-fetch",
+            "purl": "",
+            "version": "4.0.1"
+          },
+          {
+            "name": "minipass-flush",
+            "purl": "",
+            "version": "1.0.5"
+          },
+          {
+            "name": "minipass-pipeline",
+            "purl": "",
+            "version": "1.2.4"
+          },
+          {
+            "name": "minipass-sized",
+            "purl": "",
+            "version": "1.0.3"
+          },
+          {
+            "name": "minizlib",
+            "purl": "",
+            "version": "3.1.0"
+          },
+          {
+            "name": "mkdirp",
+            "purl": "",
+            "version": "3.0.1"
+          },
+          {
+            "name": "ms",
+            "purl": "",
+            "version": "2.1.3"
+          },
+          {
+            "name": "murmurhash",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "negotiator",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "node-addon-api",
+            "purl": "",
+            "version": "8.7.0"
+          },
+          {
+            "name": "node-gyp",
+            "purl": "",
+            "version": "11.4.2"
+          },
+          {
+            "name": "node-gyp-build",
+            "purl": "",
+            "version": "4.8.4"
+          },
+          {
+            "name": "nopt",
+            "purl": "",
+            "version": "8.1.0"
+          },
+          {
+            "name": "normalize-url",
+            "purl": "",
+            "version": "6.1.0"
+          },
+          {
+            "name": "object-assign",
+            "purl": "",
+            "version": "4.1.1"
+          },
+          {
+            "name": "object-hash",
+            "purl": "",
+            "version": "2.2.0"
+          },
+          {
+            "name": "object-inspect",
+            "purl": "",
+            "version": "1.13.4"
+          },
+          {
+            "name": "oidc-token-hash",
+            "purl": "",
+            "version": "5.1.1"
+          },
+          {
+            "name": "on-finished",
+            "purl": "",
+            "version": "2.4.1"
+          },
+          {
+            "name": "once",
+            "purl": "",
+            "version": "1.4.0"
+          },
+          {
+            "name": "one-time",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "openid-client",
+            "purl": "",
+            "version": "5.7.1"
+          },
+          {
+            "name": "p-cancelable",
+            "purl": "",
+            "version": "2.1.1"
+          },
+          {
+            "name": "p-map",
+            "purl": "",
+            "version": "7.0.3"
+          },
+          {
+            "name": "package-json-from-dist",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "parseurl",
+            "purl": "",
+            "version": "1.3.3"
+          },
+          {
+            "name": "path-key",
+            "purl": "",
+            "version": "3.1.1"
+          },
+          {
+            "name": "path-scurry",
+            "purl": "",
+            "version": "1.11.1"
+          },
+          {
+            "name": "path-to-regexp",
+            "purl": "",
+            "version": "8.4.2"
+          },
+          {
+            "name": "picomatch",
+            "purl": "",
+            "version": "4.0.5"
+          },
+          {
+            "name": "pluggy-sdk",
+            "purl": "",
+            "version": "0.89.0"
+          },
+          {
+            "name": "plugins-service",
+            "purl": "",
+            "version": "0.0.1"
+          },
+          {
+            "name": "proc-log",
+            "purl": "",
+            "version": "5.0.0"
+          },
+          {
+            "name": "promise-retry",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "proxy-addr",
+            "purl": "",
+            "version": "2.0.7"
+          },
+          {
+            "name": "proxy-from-env",
+            "purl": "",
+            "version": "2.1.0"
+          },
+          {
+            "name": "pump",
+            "purl": "",
+            "version": "3.0.3"
+          },
+          {
+            "name": "qs",
+            "purl": "",
+            "version": "6.15.3"
+          },
+          {
+            "name": "quick-lru",
+            "purl": "",
+            "version": "5.1.1"
+          },
+          {
+            "name": "range-parser",
+            "purl": "",
+            "version": "1.2.1"
+          },
+          {
+            "name": "raw-body",
+            "purl": "",
+            "version": "3.0.2"
+          },
+          {
+            "name": "readable-stream",
+            "purl": "",
+            "version": "3.6.2"
+          },
+          {
+            "name": "resolve-alpn",
+            "purl": "",
+            "version": "1.2.1"
+          },
+          {
+            "name": "responselike",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "retry",
+            "purl": "",
+            "version": "0.12.0"
+          },
+          {
+            "name": "router",
+            "purl": "",
+            "version": "2.2.0"
+          },
+          {
+            "name": "safe-buffer",
+            "purl": "",
+            "version": "5.2.1"
+          },
+          {
+            "name": "safe-stable-stringify",
+            "purl": "",
+            "version": "2.5.0"
+          },
+          {
+            "name": "safer-buffer",
+            "purl": "",
+            "version": "2.1.2"
+          },
+          {
+            "name": "semver",
+            "purl": "",
+            "version": "7.7.4"
+          },
+          {
+            "name": "send",
+            "purl": "",
+            "version": "1.2.0"
+          },
+          {
+            "name": "serve-static",
+            "purl": "",
+            "version": "2.2.0"
+          },
+          {
+            "name": "setprototypeof",
+            "purl": "",
+            "version": "1.2.0"
+          },
+          {
+            "name": "shebang-command",
+            "purl": "",
+            "version": "2.0.0"
+          },
+          {
+            "name": "shebang-regex",
+            "purl": "",
+            "version": "3.0.0"
+          },
+          {
+            "name": "side-channel",
+            "purl": "",
+            "version": "1.1.1"
+          },
+          {
+            "name": "side-channel-list",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "side-channel-map",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "side-channel-weakmap",
+            "purl": "",
+            "version": "1.0.2"
+          },
+          {
+            "name": "signal-exit",
+            "purl": "",
+            "version": "4.1.0"
+          },
+          {
+            "name": "slug",
+            "purl": "",
+            "version": "8.2.3"
+          },
+          {
+            "name": "smart-buffer",
+            "purl": "",
+            "version": "4.2.0"
+          },
+          {
+            "name": "socks",
+            "purl": "",
+            "version": "2.8.7"
+          },
+          {
+            "name": "socks-proxy-agent",
+            "purl": "",
+            "version": "8.0.5"
+          },
+          {
+            "name": "ssri",
+            "purl": "",
+            "version": "12.0.0"
+          },
+          {
+            "name": "stack-trace",
+            "purl": "",
+            "version": "0.0.10"
+          },
+          {
+            "name": "statuses",
+            "purl": "",
+            "version": "2.0.2"
+          },
+          {
+            "name": "string-width",
+            "purl": "",
+            "version": "4.2.3"
+          },
+          {
+            "name": "string_decoder",
+            "purl": "",
+            "version": "1.3.0"
+          },
+          {
+            "name": "strip-ansi",
+            "purl": "",
+            "version": "6.0.1"
+          },
+          {
+            "name": "supports-color",
+            "purl": "",
+            "version": "5.5.0"
+          },
+          {
+            "name": "tar",
+            "purl": "",
+            "version": "7.5.22"
+          },
+          {
+            "name": "text-hex",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "tinyglobby",
+            "purl": "",
+            "version": "0.2.17"
+          },
+          {
+            "name": "toidentifier",
+            "purl": "",
+            "version": "1.0.1"
+          },
+          {
+            "name": "triple-beam",
+            "purl": "",
+            "version": "1.4.1"
+          },
+          {
+            "name": "type-is",
+            "purl": "",
+            "version": "2.0.1"
+          },
+          {
+            "name": "undici-types",
+            "purl": "",
+            "version": "8.3.0"
+          },
+          {
+            "name": "unique-filename",
+            "purl": "",
+            "version": "4.0.0"
+          },
+          {
+            "name": "unique-slug",
+            "purl": "",
+            "version": "5.0.0"
+          },
+          {
+            "name": "unpipe",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "util-deprecate",
+            "purl": "",
+            "version": "1.0.2"
+          },
+          {
+            "name": "uuid",
+            "purl": "",
+            "version": "14.0.2"
+          },
+          {
+            "name": "vary",
+            "purl": "",
+            "version": "1.1.2"
+          },
+          {
+            "name": "which",
+            "purl": "",
+            "version": "2.0.2"
+          },
+          {
+            "name": "winston",
+            "purl": "",
+            "version": "3.19.0"
+          },
+          {
+            "name": "winston-transport",
+            "purl": "",
+            "version": "4.9.0"
+          },
+          {
+            "name": "wrap-ansi",
+            "purl": "",
+            "version": "7.0.0"
+          },
+          {
+            "name": "wrappy",
+            "purl": "",
+            "version": "1.0.2"
+          },
+          {
+            "name": "yallist",
+            "purl": "",
+            "version": "4.0.0"
+          },
+          {
+            "name": "yargs-parser",
+            "purl": "",
+            "version": "20.2.9"
+          }
+        ],
+        "php": [],
+        "python": [],
+        "ruby": [],
+        "rust": []
+      },
+      "source": "upstream",
+      "summary": {
+        "dotnet": 0,
+        "freebsd": 63,
+        "go": 0,
+        "java": 0,
+        "node": 254,
+        "php": 0,
+        "python": 0,
+        "ruby": 0,
+        "rust": 0,
+        "total": 317
+      }
+    }
+  }
+}
