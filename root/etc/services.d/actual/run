@@ -1,0 +1,9 @@
+#!/bin/sh
+# Actual Budget sync-server s6 service.
+# `node build/app.js` runs DB migrations then starts the Express server (see
+# packages/sync-server/app.ts upstream) — one process, no separate migrate
+# step and no readiness-notification dance needed; the CIT health gate polls
+# /health over HTTP instead.
+
+echo "[INFO] Starting Actual Budget sync server..."
+exec s6-setuidgid bsd /usr/local/bin/node /app/build/app.js

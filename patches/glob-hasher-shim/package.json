@@ -1,0 +1,8 @@
+{
+  "name": "glob-hasher",
+  "version": "1.4.2-freebsd-shim",
+  "description": "Pure-JS stand-in for the real glob-hasher NAPI addon on FreeBSD, where no prebuilt binding exists (napi optionalDependencies only cover win32/darwin/linux) and no source build is published either. See ../../.porting/cookbook.md.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Daemonless healthcheck for Actual Budget.
+# /health is a static handler (see packages/sync-server/app.ts upstream), so
+# a 200 here proves only that the process is listening.
+if fetch -qo /dev/null "http://127.0.0.1:5006/health" >/dev/null 2>&1; then
+    exit 0
+else
+    exit 1
+fi

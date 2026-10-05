@@ -1,0 +1,46 @@
+name: actual
+
+x-daemonless:
+  class: "service"
+  title: "Actual Budget"
+  icon: ":simple-actualbudget:"
+  category: "Productivity"
+  description: "Self-hosted personal finance sync server (Actual Budget) on FreeBSD."
+  upstream_url: "https://github.com/actualbudget/actual"
+  web_url: "https://actualbudget.org/"
+  user: "bsd"
+  mlock: false
+  appjail: true
+
+  docs:
+    env:
+      PUID: "User ID for the application process"
+      PGID: "Group ID for the application process"
+      TZ: "Timezone for the container"
+      NODE_ENV: "Node runtime mode; leave as 'production'"
+      ACTUAL_PORT: "Internal port the sync server listens on; leave as 5006"
+      ACTUAL_HOSTNAME: "Bind address for the sync server; leave as 0.0.0.0 (the app's own default, '::', is IPv6-any and breaks single-stack containers)"
+      ACTUAL_DATA_DIR: "Directory where Actual stores its account database, budget files and server config (under the /data volume)"
+    volumes:
+      /data: "Application data — account database, budget files and server config"
+    ports:
+      5006: "Web UI + sync API"
+
+services:
+  actual:
+    image: ghcr.io/daemonless/actual:latest
+    container_name: actual
+    restart: unless-stopped
+    network_mode: host
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - NODE_ENV=production
+      - ACTUAL_PORT=5006
+      - ACTUAL_HOSTNAME=0.0.0.0
+      - ACTUAL_DATA_DIR=/data
+
+    volumes:
+      - ./data:/data
