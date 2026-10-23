@@ -1,0 +1,10 @@
+#!/bin/sh
+echo "[init] Initializing Actual Budget data directory..."
+
+mkdir -p /data
+# As non-root (podman --user), ownership is the runtime's.
+if [ "$(id -u)" = 0 ]; then
+    chown -R bsd:bsd /data
+fi
+
+echo "[init] Done"

@@ -19,7 +19,7 @@ ARG UPSTREAM_JQ=".tag_name"
 # ==========================================================================
 # Stage 1: Builder
 # ==========================================================================
-FROM ghcr.io/daemonless/base:${BASE_VERSION} AS builder
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION} AS builder
 
 ARG ACTUAL_VERSION
 ARG UPSTREAM_URL
@@ -260,7 +260,7 @@ RUN rm -rf ./node_modules/@actual-app/web ./node_modules/@actual-app/sync-server
 # ==========================================================================
 # Stage 2: Runtime
 # ==========================================================================
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PACKAGES="node24 ca_root_nss"
@@ -313,7 +313,11 @@ COPY --from=builder --chown=bsd:bsd /app/packages/sync-server/build /app/build
 RUN chown -R bsd:bsd /data
 
 COPY root/ /
-RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* /healthz
+RUN chmod +x /daemonless/libexec/actual /daemonless/init.d/*
+
+CMD ["/daemonless/libexec/actual"]
+
+RUN chmod +x /healthz
 
 WORKDIR /app
 

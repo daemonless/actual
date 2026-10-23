@@ -1,7 +1,0 @@
-#!/bin/sh
-echo "[init] Initializing Actual Budget data directory..."
-
-mkdir -p /data
-chown -R bsd:bsd /data
-
-echo "[init] Done"
