@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T16:17:28Z",
+  "generated": "2026-11-02T23:38:42Z",
   "image": "actual",
   "tags": {
     "latest": {
-      "app_version": "v26.10.0",
+      "app_version": "v26.11.0",
       "arch": "amd64",
-      "generated": "2026-10-23T16:16:51Z",
+      "generated": "2026-11-02T23:38:03Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -252,7 +252,7 @@
               "MIT"
             ],
             "name": "brotli",
-            "version": "1.2.0,1"
+            "version": "1.2.1,1"
           },
           {
             "licenses": [
@@ -266,7 +266,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -364,14 +364,6 @@
           },
           {
             "licenses": [
-              "MIT",
-              "APACHE20"
-            ],
-            "name": "merve",
-            "version": "1.2.2_3"
-          },
-          {
-            "licenses": [
               "MIT"
             ],
             "name": "nbytes",
@@ -382,7 +374,7 @@
               "MIT"
             ],
             "name": "node24",
-            "version": "24.21.0_1"
+            "version": "24.22.1"
           },
           {
             "licenses": [
@@ -405,14 +397,6 @@
             ],
             "name": "simdjson",
             "version": "5.0.5"
-          },
-          {
-            "licenses": [
-              "MIT",
-              "APACHE20"
-            ],
-            "name": "simdutf",
-            "version": "9.2.1"
           },
           {
             "licenses": [
@@ -443,27 +427,27 @@
           {
             "name": "@actual-app/core",
             "purl": "",
-            "version": "26.10.0"
+            "version": "26.11.0"
           },
           {
             "name": "@actual-app/crdt",
             "purl": "",
-            "version": "3.1.3"
+            "version": "3.1.4"
           },
           {
             "name": "@actual-app/sync-server",
             "purl": "",
-            "version": "26.10.0"
+            "version": "26.11.0"
           },
           {
             "name": "@actual-app/web",
             "purl": "",
-            "version": "26.10.0"
+            "version": "26.11.0"
           },
           {
             "name": "@bufbuild/protobuf",
             "purl": "",
-            "version": "2.12.1"
+            "version": "2.16.0"
           },
           {
             "name": "@colors/colors",
@@ -588,7 +572,7 @@
           {
             "name": "argon2",
             "purl": "",
-            "version": "0.44.0"
+            "version": "0.45.1"
           },
           {
             "name": "async",
@@ -613,7 +597,7 @@
           {
             "name": "axios",
             "purl": "",
-            "version": "1.18.1"
+            "version": "1.20.0"
           },
           {
             "name": "balanced-match",
@@ -633,12 +617,12 @@
           {
             "name": "body-parser",
             "purl": "",
-            "version": "2.2.1"
+            "version": "2.3.0"
           },
           {
             "name": "brace-expansion",
             "purl": "",
-            "version": "2.0.3"
+            "version": "2.1.7"
           },
           {
             "name": "buffer-equal-constant-time",
@@ -723,12 +707,12 @@
           {
             "name": "content-disposition",
             "purl": "",
-            "version": "1.0.0"
+            "version": "2.0.1"
           },
           {
             "name": "content-type",
             "purl": "",
-            "version": "1.0.5"
+            "version": "2.1.0"
           },
           {
             "name": "convict",
@@ -903,12 +887,12 @@
           {
             "name": "express",
             "purl": "",
-            "version": "5.2.1"
+            "version": "5.3.0"
           },
           {
             "name": "express-rate-limit",
             "purl": "",
-            "version": "8.6.0"
+            "version": "8.7.1"
           },
           {
             "name": "express-winston",
@@ -938,7 +922,7 @@
           {
             "name": "follow-redirects",
             "purl": "",
-            "version": "1.16.0"
+            "version": "1.16.1"
           },
           {
             "name": "foreground-child",
@@ -1033,7 +1017,7 @@
           {
             "name": "http-cache-semantics",
             "purl": "",
-            "version": "4.2.0"
+            "version": "4.3.0"
           },
           {
             "name": "http-errors",
@@ -1073,7 +1057,7 @@
           {
             "name": "ip-address",
             "purl": "",
-            "version": "10.4.0"
+            "version": "10.7.4"
           },
           {
             "name": "ipaddr.js",
@@ -1303,7 +1287,7 @@
           {
             "name": "node-addon-api",
             "purl": "",
-            "version": "8.7.0"
+            "version": "8.9.2"
           },
           {
             "name": "node-gyp",
@@ -1403,12 +1387,12 @@
           {
             "name": "picomatch",
             "purl": "",
-            "version": "4.0.5"
+            "version": "4.0.7"
           },
           {
             "name": "pluggy-sdk",
             "purl": "",
-            "version": "0.89.0"
+            "version": "0.92.0"
           },
           {
             "name": "plugins-service",
@@ -1428,7 +1412,7 @@
           {
             "name": "proxy-addr",
             "purl": "",
-            "version": "2.0.7"
+            "version": "2.0.8"
           },
           {
             "name": "proxy-from-env",
@@ -1443,7 +1427,7 @@
           {
             "name": "qs",
             "purl": "",
-            "version": "6.15.3"
+            "version": "6.16.0"
           },
           {
             "name": "quick-lru",
@@ -1638,7 +1622,12 @@
           {
             "name": "type-is",
             "purl": "",
-            "version": "2.0.1"
+            "version": "2.1.0"
+          },
+          {
+            "name": "undici",
+            "purl": "",
+            "version": "7.30.1"
           },
           {
             "name": "undici-types",
@@ -1668,7 +1657,7 @@
           {
             "name": "uuid",
             "purl": "",
-            "version": "14.0.2"
+            "version": "14.0.3"
           },
           {
             "name": "vary",
@@ -1719,15 +1708,15 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 60,
+        "freebsd": 58,
         "go": 0,
         "java": 0,
-        "node": 254,
+        "node": 255,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 314
+        "total": 313
       }
     }
   }
